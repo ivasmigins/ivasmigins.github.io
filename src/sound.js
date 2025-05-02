@@ -1,8 +1,8 @@
 export const soundManager = {
     muted: false,
     sounds: {
-        hover: new Audio('Sounds/hover.mp3'),
-        click: new Audio('Sounds/click.mp3')
+        hover: new Audio('sounds/hover.mp3'),
+        click: new Audio('sounds/click.mp3')
     },
     init() {
         Object.values(this.sounds).forEach(sound => {
