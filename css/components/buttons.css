@@ -1,0 +1,34 @@
+.project-buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-buttons a::after {
+    content: "→";
+    position: absolute;
+    right: -20px;
+    transition: all 0.3s ease;
+}
+
+.project-buttons a:hover {
+    background-color: #222;
+    transform: scale(1.05);
+}
+
+.project-buttons a:hover::after {
+    right: 10px;
+}
+
+.project-buttons a:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2) !important;
+}

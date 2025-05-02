@@ -1,0 +1,111 @@
+.project-card {
+    background: var(--secondary-color);
+    border: 4px solid var(--primary-color);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    flex: 1 1 calc(40% - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.project-card::before,
+.project-card::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+}
+
+.project-card::before {
+    top: -8px;
+    left: -8px;
+}
+
+.project-card::after {
+    bottom: -8px;
+    right: -8px;
+}
+
+.project-card h3::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    margin-right: 10px;
+    image-rendering: pixelated;
+}
+
+.project-info {
+    margin-bottom: 15px;
+}
+
+/* Different media types */
+.project-card img {
+    width: 100%;
+    height: auto;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-card iframe {
+    width: 100%;
+    height: 315px;
+    border: 3px solid var(--primary-color);
+}
+
+.project-card video.project-video {
+    width: 100%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Featured Project. Couldn't find a way to fit a new color in lol but yellow stands out enough */
+.project-card.featured {
+    border-color: var(--primary-color);
+}
+
+.project-card.featured .featured-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: gold;
+    color: black;
+    font-size: 10px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 4px 8px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Stats bars */
+.stat-bar {
+    margin: 10px 0;
+    font-size: 10px;
+}
+
+.bar-container {
+    height: 8px;
+    border: 2px solid var(--primary-color);
+    margin-top: 4px;
+    background: var(--secondary-color);
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+}

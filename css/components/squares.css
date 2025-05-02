@@ -1,0 +1,20 @@
+.floating-squares {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.square {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--primary-color);
+    background-color: transparent;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.05);
+    animation: float 10s ease-in-out infinite;
+}

@@ -1,0 +1,47 @@
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .project-card video {
+        height: auto;
+        max-height: 220px;
+        width: 100%;
+    }
+
+    .project-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .project-card iframe {
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .project-buttons a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    body {
+        font-size: 10px;
+        padding: 15px;
+    }
+
+    .controls {
+        position: static;
+        margin-top: 15px;
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --green-color: #00FF00;
+    --shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+body.dark-mode {
+    --primary-color: #ffffff;
+    --secondary-color: #121212;
+    --shadow: 4px 4px 0 rgba(255, 255, 255, 0.2);
+    background-color: #000000;
+    color: #ffffff;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 0.3;
+    }
+}
