@@ -1,0 +1,20 @@
+﻿<Window x:Class="RecipeSearchApp.RecipeDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe Details" Height="650" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Recipe name:" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlockRecipeName" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+        <TextBlock Text="Ingredients:" FontWeight="Bold" Margin="0,10,0,0"/>
+        <TextBox x:Name="textBoxIngredients" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" Height="100"/>
+        <TextBlock Text="Instructions:" FontWeight="Bold" Margin="0,10,0,0"/>
+        <TextBox x:Name="textBoxInstructions" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" Height="140"/>
+        <TextBlock Text="Macronutrients:" FontWeight="Bold" Margin="0,10,0,0"/>
+        <TextBlock Text="Fats:" FontWeight="Bold"/>
+        <TextBox x:Name="textBoxFats" IsReadOnly="True" Margin="0,5,0,0"/>
+        <TextBlock Text="Carbohydrates:" FontWeight="Bold" Margin="0,10,0,0"/>
+        <TextBox x:Name="textBoxCarbohydrates" IsReadOnly="True" Margin="0,5,0,0"/>
+        <TextBlock Text="Fiber:" FontWeight="Bold" Margin="0,10,0,0"/>
+        <TextBox x:Name="textBoxFiber" IsReadOnly="True" Margin="0,5,0,0"/>
+    </StackPanel>
+</Window>

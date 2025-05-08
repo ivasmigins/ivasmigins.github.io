@@ -1,0 +1,8 @@
+menu "WiFi Settings"
+    config WIFI_SSID
+        string "SSID"
+        default "iPhone"
+    config WIFI_PASS
+        string "Password"
+        default "Contrasena321"
+endmenu

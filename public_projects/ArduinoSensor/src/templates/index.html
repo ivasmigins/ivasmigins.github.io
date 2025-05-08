@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #000000;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        .chart-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #000000;
+            border-radius: 8px;
+        }
+        .refresh-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #009e3a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .refresh-button:hover {
+            background-color: #006124;
+        }
+    </style>
+</head>
+<body>
+    <h1>Microcontrollers: Temperature Dashboard</h1>
+
+    <div class="chart-container">
+        <h2>Real-time Temperature</h2>
+        <canvas id="realtimeChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2>Last Day</h2>
+        <canvas id="lastDayChart"></canvas>
+        <button class="refresh-button" onclick="updateLastDay()">Refresh</button>
+    </div>
+
+    <div class="chart-container">
+        <h2>Last 3 Days</h2>
+        <canvas id="last3DaysChart"></canvas>
+        <button class="refresh-button" onclick="updateLast3Days()">Refresh</button>
+    </div>
+
+    <div class="chart-container">
+        <h2>All Data</h2>
+        <canvas id="allDataChart"></canvas>
+        <button class="refresh-button" onclick="updateAllData()">Refresh</button>
+    </div>
+
+    <script>
+        const realtimeChartCtx = document.getElementById('realtimeChart').getContext('2d');
+        const lastDayChartCtx = document.getElementById('lastDayChart').getContext('2d');
+        const last3DaysChartCtx = document.getElementById('last3DaysChart').getContext('2d');
+        const allDataChartCtx = document.getElementById('allDataChart').getContext('2d');
+
+        const realtimeChart = new Chart(realtimeChartCtx, createChartConfig([], [], 'Real-time Temperature'));
+        const lastDayChart = new Chart(lastDayChartCtx, createChartConfig([], [], 'Last Day'));
+        const last3DaysChart = new Chart(last3DaysChartCtx, createChartConfig([], [], 'Last 3 Days'));
+        const allDataChart = new Chart(allDataChartCtx, createChartConfig([], [], 'All Data'));
+
+        function createChartConfig(labels, data, title) {
+            return {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: data,
+                        borderColor: 'white',
+                        backgroundColor: 'rgba(255, 0, 0, 0.8)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true, labels: { color: 'white' } },
+                        title: { display: true, text: title, color: 'white'}
+                    },
+                    scales: {
+                        x: { title: { display: true, text: 'Time', color: 'white' }, ticks: {color: 'white'}, grid: {color: 'rgba(255, 255, 255, 0.1)'} },
+                        y: { title: { display: true, text: 'Temperature (°C)', color: 'white' }, ticks: {color: 'white'}, grid: {color: 'rgba(255, 255, 255, 0)'} }
+                    }
+                }
+            };
+        }
+
+        setInterval(updateRealTime, 2000);
+        function updateRealTime() {
+            fetch('/api/realtime-data')
+                .then(response => response.json())
+                .then(data => {
+                    realtimeChart.data.labels = data.timestamps.reverse(); // Make newer data appear on the right
+                    realtimeChart.data.datasets[0].data = data.temperatures.reverse();
+                    realtimeChart.update();
+                });
+        }
+
+        function updateLastDay() {
+            fetch('/api/last-day')
+                .then(response => response.json())
+                .then(data => {
+                    lastDayChart.data.labels = data.timestamps;
+                    lastDayChart.data.datasets[0].data = data.temperatures;
+                    lastDayChart.update();
+                });
+        }
+
+        function updateLast3Days() {
+            fetch('/api/last-3-days')
+                .then(response => response.json())
+                .then(data => {
+                    last3DaysChart.data.labels = data.timestamps;
+                    last3DaysChart.data.datasets[0].data = data.temperatures;
+                    last3DaysChart.update();
+                });
+        }
+
+        function updateAllData() {
+            fetch('/api/all-data')
+                .then(response => response.json())
+                .then(data => {
+                    allDataChart.data.labels = data.timestamps;
+                    allDataChart.data.datasets[0].data = data.temperatures;
+                    allDataChart.update();
+                });
+        }
+
+        window.onload = function() {
+            updateLastDay();
+            updateLast3Days();
+            updateAllData();
+        };
+    </script>
+</body>
+</html>
