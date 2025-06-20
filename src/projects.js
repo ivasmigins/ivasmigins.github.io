@@ -91,6 +91,26 @@ export const projects = [
         ]
     },
     {
+        title: "Flask-based RESTful API with HTTPOnly Cookies",
+        featured: true,
+        description: "This API is secured using cookie-based authentication and is ready for deployment with Flask. It serves as the backend for both a website and a smartwatch. Data collected by the smartwatch (health metrics) can be viewed on the website by users or doctors after logging in and registering the associated watch or patient.",
+        image: "../images/flaskimg.jpg",
+        links: [{
+            label: "Code",
+            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/RESTfulAPI"
+        }
+        ],
+        stats: [{
+            label: "Difficulty",
+            percentage: 80
+        },
+        {
+            label: "Completion",
+            percentage: 100
+        }
+        ]
+    },
+    {
         title: "Graph generator via Lua console app",
         description: "A console application written in Lua which gets data from an API and generates graph .png files based on the requested data.<br> Uses oocairo to draw pixels onto an image!",
         image: "../images/ConsoleGraphOutputExample.png",
