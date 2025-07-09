@@ -111,17 +111,18 @@ export const projects = [
         ]
     },
     {
-        title: "Graph generator via Lua console app",
-        description: "A console application written in Lua which gets data from an API and generates graph .png files based on the requested data.<br> Uses oocairo to draw pixels onto an image!",
-        image: "../images/ConsoleGraphOutputExample.png",
+        title: "WiFi Manager for ESP32",
+        featured: true,
+        description: "A singleton class written in C++ that connects to a wifi network, attempts to reconnect if connection is lost, and features POST and GET requests to a given URL.<br>The received data from a server is read in chunks with a modifiable limit to prevent issues!",
+        image: "../images/esp32.png",
         links: [{
             label: "Code",
-            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/LuaConsoleGraphImg"
+            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/WifiManagerESP32"
         }
         ],
         stats: [{
             label: "Difficulty",
-            percentage: 50
+            percentage: 45
         },
         {
             label: "Completion",
@@ -150,6 +151,63 @@ export const projects = [
         ]
     },
     {
+        title: "Linux Driver",
+        description: "This Linux kernel module implements a character device driver that controls a 16-segment display using GPIO pins and reads input from 4 hardware buttons. It showcases low-level hardware interaction, asynchronous display updates, and custom kernel workqueue scheduling on a Raspberry Pi.",
+        image: "../images/linuxDriver.jpg",
+        links: [{
+            label: "Code",
+            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/LinuxDriver"
+        }
+        ],
+        stats: [{
+            label: "Difficulty",
+            percentage: 30
+        },
+        {
+            label: "Completion",
+            percentage: 100
+        }
+        ]
+    },
+    {
+        title: "POSIX Semaphores",
+        description: "Simulates a roller coaster loading system using C, pthreads, and semaphores, prioritizing different passenger types (premium, groups, loners) while preventing starvation. It demonstrates advanced concurrency control, queue management, and fairness strategies in a multi-threaded environment.",
+        image: "../images/SemaphoreProdCons.png",
+        links: [{
+            label: "Code",
+            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/POSIXSemaphores"
+        }
+        ],
+        stats: [{
+            label: "Difficulty",
+            percentage: 30
+        },
+        {
+            label: "Completion",
+            percentage: 100
+        }
+        ]
+    },
+    {
+        title: "Graph generator via Lua console app",
+        description: "A console application written in Lua which gets data from an API and generates graph .png files based on the requested data.<br> Uses oocairo to draw pixels onto an image!",
+        image: "../images/ConsoleGraphOutputExample.png",
+        links: [{
+            label: "Code",
+            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/LuaConsoleGraphImg"
+        }
+        ],
+        stats: [{
+            label: "Difficulty",
+            percentage: 50
+        },
+        {
+            label: "Completion",
+            percentage: 100
+        }
+        ]
+    },
+    {
         title: "Monster Mayhem",
         description: "Created and programmed a game in Roblox where you play as a monster that destroys different maps, eats scared humans, gets stronger, and fights the military!<br>I have this project in an <b>indefinite hold</b> at the moment. Coded using Luau.",
         videoId: "CLwO-2jHnJ4",
@@ -160,26 +218,6 @@ export const projects = [
         {
             label: "Completion",
             percentage: 95
-        }
-        ]
-    },
-    {
-        title: "WiFi Manager for ESP32",
-        featured: true,
-        description: "A singleton class written in C++ that connects to a wifi network, attempts to reconnect if connection is lost, and features POST and GET requests to a given URL.<br>The received data from a server is read in chunks with a modifiable limit to prevent issues!",
-        image: "../images/esp32.png",
-        links: [{
-            label: "Code",
-            url: "https://github.com/ivasmigins/ivasmigins.github.io/tree/main/public_projects/WifiManagerESP32"
-        }
-        ],
-        stats: [{
-            label: "Difficulty",
-            percentage: 45
-        },
-        {
-            label: "Completion",
-            percentage: 100
         }
         ]
     },
